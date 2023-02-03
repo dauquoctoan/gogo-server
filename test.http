@@ -1,0 +1,150 @@
+###
+get http://localhost:3005/site/topics
+content-type: application/json
+
+###
+get http://localhost:3005/site/news-event
+
+
+###
+GET http://localhost:3005/users
+content-type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYjdhMGNiMmQ0ZTI3NzUwNGE5OTk0NyIsImVtYWlsIjoiZHF0b2RhbjAxMnNhQGdtYWlsLmNvbSIsImlhdCI6MTY3Mjk4OTYyNX0.F-uP17sGS0AFKqc3e6caz-zgGk0ETP0-xuIiqt4nGuo
+
+
+###
+GET http://localhost:3005/admin/topics?limit=10&index=10
+
+
+###
+post http://localhost:3005/auth/save-user-with-token
+content-type: application/json
+
+{
+   "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhlMGFjZjg5MWUwOTAwOTFlZjFhNWU3ZTY0YmFiMjgwZmQxNDQ3ZmEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NzI5MTA4NzMsImF1ZCI6IjkxOTMxNTg4NTYwMS04MnJzc2dlbHQ5cXNuaWhoazhpb2M5YWl2NGppcjh1NC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwNjYzNjg5MDA5MzA4Mjg1MzE2OCIsImVtYWlsIjoiZHF0b2FuMDEyM0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXpwIjoiOTE5MzE1ODg1NjAxLTgycnNzZ2VsdDlxc25paGhrOGlvYzlhaXY0amlyOHU0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6IsSQ4bqtdSBRdeG7kWMgVG_DoG4iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUVkRlRwNUdxcGtDNlFIeDZpYkI0TmUtSnhiX3NxYU9ad1FCQTg5azIydHM9czk2LWMiLCJnaXZlbl9uYW1lIjoixJDhuq11IFF14buRYyBUb8OgbiIsImlhdCI6MTY3MjkxMTE3MywiZXhwIjoxNjcyOTE0NzczLCJqdGkiOiJlYmYxM2NhMzNkMzM2M2ExOWNmODdhMjk0ZDlkNzgzZDI0Y2JmOThmIn0.kIdpf0k86Tx1m9U9UeDccsjd40qTWxCoXM83ov4ZTUZSeH8mebbD6JPNnlppFpCzsbLW3oYUQwOviBPeUDeD_CBSWrVL7GSd1030DbmCRF3sZpV1PxvxTup4o508QDdMpjzGIpaUx3QGe3lvCq6lDVdYzREGfP731Xrz2K3wUMeOjv810OeLKP-ztSwmAO-5eFloi6P-k-il76JdzJ_75iyad2mcNV6fMj1imkGJRzylJUbSqL-5z8h1j00JHVrv_BQFeshvCHO1XRL4AB5DoK7TJeRuArn-m4FK6DLUwZ_8L6jALSaVfmlVvhzRx_q-f9JMTqdsLtZhxw7FEJXx9A"
+}
+
+###
+post http://localhost:3005/auth/save-user
+content-type: application/json
+
+{
+    "name": "toansssdq",
+    "email": "dqtoan0123s@gmail.com",
+    "typeAccount": 0,
+    "password": "password"
+}
+
+###
+post http://localhost:3005/auth/login
+content-type: application/json
+
+{
+    "email": "dqtoan0123s@gmail.com",
+    "password": "password"
+}
+
+###
+get http://localhost:3005/admin/topics
+content-type: application/json
+
+###
+post http://localhost:3005/site
+content-type: application/json
+
+
+###
+post http://localhost:3005/admin/card
+content-type: application/json
+
+
+{
+    "type": "card",
+    "options":[
+        {
+            "title":"test",
+            "img": "..."
+        },
+        {
+            "title":"test",
+            "img": "..."
+        }
+    ],
+    "answer": 1,
+    "level": 1,
+    "topic":1
+}
+
+###
+post http://localhost:3005/admin/topic
+content-type: application/json
+
+{
+    "name": "chủ đề 2"
+}
+
+###
+post http://localhost:3005/admin/upload/image
+content-type: application/json
+
+###
+post http://localhost:3005/upload/image
+content-type: application/json
+
+{
+    "Form Data":{
+        "image": "101010101010101010110"
+    }
+}
+
+###
+get http://localhost:3005/admin/topics
+content-type: application/json
+
+
+###
+post http://localhost:3005/admin/lesson
+content-type: application/json
+
+{
+    "title": "ads",
+    "type": 1,
+    "options": ["sdfsdf","sdfsdf"],
+    "answer": 1,
+    "level": 1,
+    "topic": "63c42971c5688a1b5c8d50e2"
+}
+
+###
+get http://localhost:3005/admin/lessons
+
+###
+post http://localhost:3005/login-token
+content-type: application/json
+
+{
+    "token":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImFmYzRmYmE2NTk5ZmY1ZjYzYjcyZGM1MjI0MjgyNzg2ODJmM2E3ZjEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NzQ5NTc1ODIsImF1ZCI6IjkxOTMxNTg4NTYwMS04MnJzc2dlbHQ5cXNuaWhoazhpb2M5YWl2NGppcjh1NC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwNjYzNjg5MDA5MzA4Mjg1MzE2OCIsImVtYWlsIjoiZHF0b2FuMDEyM0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXpwIjoiOTE5MzE1ODg1NjAxLTgycnNzZ2VsdDlxc25paGhrOGlvYzlhaXY0amlyOHU0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6IsSQ4bqtdSBRdeG7kWMgVG_DoG4iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUVkRlRwNUdxcGtDNlFIeDZpYkI0TmUtSnhiX3NxYU9ad1FCQTg5azIydHM9czk2LWMiLCJnaXZlbl9uYW1lIjoixJDhuq11IFF14buRYyBUb8OgbiIsImlhdCI6MTY3NDk1Nzg4MiwiZXhwIjoxNjc0OTYxNDgyLCJqdGkiOiIzMWRiMDIyM2IyNWI5NDU2ZGJjNmU5MjQ2NDM5ZmQzZGMxNjljNDc0In0.g6QLRLTTMoIs08ktxPPBt9LKDZAPA8NLUb3Wm1CvUaDpG27u7rjncLPGsFVFhS1s2JWpMAtVOxNhl_9u14H8y8BSnxMRweRzZCjxAyHwsek3jZCgqLWOJ-jThpJ3nkkyMLOg7I-pePU2QkpbJOCVMlciogt6sDft1SlbIgnP4NJWMMva-lJzoT_sIbOKOJHA4U5ObfKyF5zNOveJEwAltquZaSjvBHoc7CzZJgjMq6OJSLa5pNB5FEQGkntFaowG4_MSs4ywCtA_K97ccJp-mmXohovZkmmDFxinjV4f359S_F85dtrE0DN3MvO6PL4UG5ruGSE9sCWRtk2hbv0uYA"
+}
+
+###
+get http://localhost:3005/site/lessons?part=63d5033df1484b058c10fcfa
+
+
+
+###
+get http://localhost:3005/site/random-lessons
+
+
+###
+get http://localhost:3005/site/news-event
+
+
+###
+put http://localhost:3005/site/user-order
+
+
+{
+    "_id":"63d29707d298722c4401194a",
+    "listCourse":[{"age":2}]
+}
+

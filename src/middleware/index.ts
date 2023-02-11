@@ -1,5 +1,5 @@
 import { handleResultError } from '../utils'
-const User = require('../models/User')
+const User = require('../models/user')
 import jwt_decode from 'jwt-decode'
 import AdminUser from '../models/AdminUser'
 import { _Find } from '../service'

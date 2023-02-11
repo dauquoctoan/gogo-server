@@ -10,7 +10,7 @@ import { STATUS_CODE } from '../configs/constants'
 import { _Create } from '../service'
 import { IUser } from '../interfaces/user'
 import AdminUser from '../models/AdminUser'
-import User from '../models/User'
+import User from '../models/user'
 var jwt = require('jsonwebtoken')
 
 class authController {

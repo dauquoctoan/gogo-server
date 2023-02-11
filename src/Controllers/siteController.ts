@@ -1,7 +1,7 @@
 import Lesson from '../models/Lesson'
 import { _Find, _FindByIdAndUpdate, _Finds, _FindsRandom } from '../service'
 import { handleSearchMongoose } from '../utils'
-import User from '../models/User'
+import User from '../models/user'
 class siteController {
     async home(req: any, res: any, next: any) {
         // console.log('req.app.socketIo', req.app.socketIo)
@@ -46,7 +46,11 @@ class siteController {
         res.json(result)
     }
     async upDateListCourse(req: any, res: any, next: any) {
-        const result = await _FindByIdAndUpdate(User, { ...req.body }, 'khóa học')
+        const result = await _FindByIdAndUpdate(
+            User,
+            { ...req.body },
+            'khóa học'
+        )
         res.json(result)
     }
 

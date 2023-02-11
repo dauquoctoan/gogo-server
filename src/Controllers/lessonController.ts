@@ -5,7 +5,6 @@ import Part from '../models/Part'
 import EventNews from '../models/EventNews'
 import Course from '../models/Course'
 
-
 import {
     _Create,
     _Creates,
@@ -15,7 +14,7 @@ import {
     _FindsRandom,
 } from '../service'
 import { handleResultSuccessNoPage, handleSearchMongoose } from '../utils'
-import User from '../models/User'
+import User from '../models/user'
 
 class lessonController {
     async createCard(req: any, res: any) {
@@ -177,7 +176,9 @@ class lessonController {
         const user = await User.count()
         const eventNews = await EventNews.count()
         const course = await Course.count()
-        res.json(handleResultSuccessNoPage('Thành công', { user, eventNews, course }))
+        res.json(
+            handleResultSuccessNoPage('Thành công', { user, eventNews, course })
+        )
     }
 
     /* course */
@@ -199,23 +200,14 @@ class lessonController {
     }
 
     async updateCourse(req: any, res: any) {
-        const result = await _FindByIdAndUpdate(
-            Course,
-            req?.body,
-            'khóa học'
-        )
+        const result = await _FindByIdAndUpdate(Course, req?.body, 'khóa học')
         res.json(result)
     }
 
     async deleteCourse(req: any, res: any) {
-        const result = await _FindByIdAndDelete(
-            Course,
-            req?.body,
-            'khóa học'
-        )
+        const result = await _FindByIdAndDelete(Course, req?.body, 'khóa học')
         res.json(result)
     }
-
 }
 
 export default new lessonController()

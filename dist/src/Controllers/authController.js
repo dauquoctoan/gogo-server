@@ -18,7 +18,7 @@ const jwt_decode_1 = __importDefault(require("jwt-decode"));
 const constants_1 = require("../configs/constants");
 const service_1 = require("../service");
 const AdminUser_1 = __importDefault(require("../models/AdminUser"));
-const user_1 = __importDefault(require("../models/user"));
+const User_1 = __importDefault(require("../models/User"));
 var jwt = require('jsonwebtoken');
 class authController {
     saveUserWithToken(req, res) {
@@ -37,7 +37,7 @@ class authController {
                         picture: user.picture,
                         typeAccount: 1,
                     };
-                    const result = yield (0, service_1._Create)(user_1.default, { email: data.email }, 'User', data);
+                    const result = yield (0, service_1._Create)(User_1.default, { email: data.email }, 'User', data);
                     return res.status(200).json(result);
                 }
                 catch (error) {
@@ -62,7 +62,7 @@ class authController {
                 typeAccount: 0,
                 password: hashPw,
             };
-            const result = yield (0, service_1._Create)(user_1.default, { email: email }, 'người dùng', data);
+            const result = yield (0, service_1._Create)(User_1.default, { email: email }, 'người dùng', data);
             res.json(result);
         });
     }
@@ -70,7 +70,7 @@ class authController {
         return __awaiter(this, void 0, void 0, function* () {
             const { email, password } = req.body;
             try {
-                const info = yield user_1.default.findOne({ email: email });
+                const info = yield User_1.default.findOne({ email: email });
                 if (info._id &&
                     (yield argon2_1.default.verify(info === null || info === void 0 ? void 0 : info.password, password)) &&
                     (info === null || info === void 0 ? void 0 : info.typeAccount) === 0) {
@@ -124,7 +124,7 @@ class authController {
             if (token) {
                 try {
                     const user = (0, jwt_decode_1.default)(token);
-                    const info = yield user_1.default.findOne({ email: user.email });
+                    const info = yield User_1.default.findOne({ email: user.email });
                     const info_token = jwt.sign({
                         id: info._id,
                         name: info.name,

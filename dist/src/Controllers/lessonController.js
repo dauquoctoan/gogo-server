@@ -20,7 +20,7 @@ const EventNews_1 = __importDefault(require("../models/EventNews"));
 const Course_1 = __importDefault(require("../models/Course"));
 const service_1 = require("../service");
 const utils_1 = require("../utils");
-const user_1 = __importDefault(require("../models/user"));
+const User_1 = __importDefault(require("../models/User"));
 class lessonController {
     createCard(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -124,7 +124,7 @@ class lessonController {
     getUsers(req, res) {
         var _a;
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield (0, service_1._Finds)(user_1.default, Object.assign(Object.assign({}, (0, utils_1.handleSearchMongoose)('name', ((_a = req === null || req === void 0 ? void 0 : req.query) === null || _a === void 0 ? void 0 : _a.search) || '')), req.query), 'Người dùng');
+            const result = yield (0, service_1._Finds)(User_1.default, Object.assign(Object.assign({}, (0, utils_1.handleSearchMongoose)('name', ((_a = req === null || req === void 0 ? void 0 : req.query) === null || _a === void 0 ? void 0 : _a.search) || '')), req.query), 'Người dùng');
             res.json(result);
         });
     }
@@ -156,7 +156,7 @@ class lessonController {
     }
     getHome(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const user = yield user_1.default.count();
+            const user = yield User_1.default.count();
             const eventNews = yield EventNews_1.default.count();
             const course = yield Course_1.default.count();
             res.json((0, utils_1.handleResultSuccessNoPage)('Thành công', { user, eventNews, course }));

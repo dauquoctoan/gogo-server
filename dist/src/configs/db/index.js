@@ -27,5 +27,4 @@ function connect() {
         }
     });
 }
-/* ... */
 exports.default = { connect };

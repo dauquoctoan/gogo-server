@@ -110,12 +110,12 @@ function _FindByIdAndDelete(modal, query, name, isRes = true) {
     });
 }
 exports._FindByIdAndDelete = _FindByIdAndDelete;
-function _FindByIdAndUpdate(modal, query, name, isRes = true) {
+function _FindByIdAndUpdate(modal, query, name, isRes = true, options = {}) {
     return __awaiter(this, void 0, void 0, function* () {
         const _id = query._id;
         delete query['_id'];
         return modal
-            .findByIdAndUpdate(_id, query)
+            .findByIdAndUpdate(_id, query, options)
             .then((result) => {
             if (result) {
                 return isRes

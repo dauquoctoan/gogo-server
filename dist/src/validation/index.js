@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.JUpdateCourse = exports.JCreateCourse = exports.JUpdatePoint = exports.JUpdateTop = exports.JCreateTop = exports.JUpdateEventNews = exports.JCreateEventNews = exports.JLoginAdmin = exports.JChangeStatusAUser = exports.JUpdateAUser = exports.JCreateAUser = exports.JUpdatePart = exports.JCreatePart = exports.JUploads = exports.JUpload = exports.JDelete = exports.JUpdateTopic = exports.JCreateTopic = exports.JUpdateLesson = exports.JCreateLesson = exports.JUpdateUser = exports.JCreateUserWithToken = exports.JCreateUser = void 0;
+exports.JUpdateCourse = exports.JUpdateCourseUser = exports.JCreateCourse = exports.JUpdatePoint = exports.JUpdateTop = exports.JCreateTop = exports.JUpdateEventNews = exports.JCreateEventNews = exports.JLoginAdmin = exports.JChangeStatusAUser = exports.JUpdateAUser = exports.JCreateAUser = exports.JUpdatePart = exports.JCreatePart = exports.JUploads = exports.JUpload = exports.JDelete = exports.JUpdateTopic = exports.JCreateTopic = exports.JUpdateLesson = exports.JCreateLesson = exports.JUpdateUser = exports.JCreateUserWithToken = exports.JCreateUser = void 0;
 const Joi = require('joi');
 const _userName = Joi.string().alphanum().min(3).max(30);
 const _email = Joi.string().email();
@@ -165,7 +165,11 @@ exports.JCreateCourse = Joi.object({
     picture: Joi.string(),
     price: Joi.number(),
     topic: Joi.string(),
-    user: Joi.string().required()
+    user: Joi.string().required(),
+});
+exports.JUpdateCourseUser = Joi.object({
+    _id: Joi.string().required(),
+    listCourse: Joi.array(),
 });
 exports.JUpdateCourse = Joi.object({
     _id: Joi.string().required(),
@@ -174,5 +178,5 @@ exports.JUpdateCourse = Joi.object({
     picture: Joi.string(),
     price: Joi.number(),
     topic: Joi.string(),
-    user: Joi.string().required()
+    user: Joi.string().required(),
 });

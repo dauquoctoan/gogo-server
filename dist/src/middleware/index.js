@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.middleUpload = exports.validate = exports.middleAuthenTicationSocket = exports.middleAuthenTication = void 0;
 const utils_1 = require("../utils");
-const User = require('../models/user');
+const User = require('../models/User');
 const jwt_decode_1 = __importDefault(require("jwt-decode"));
 const AdminUser_1 = __importDefault(require("../models/AdminUser"));
 const service_1 = require("../service");

@@ -42,18 +42,40 @@ const middleware_1 = require("./src/middleware");
 const port = process.env.SERVER_PORT;
 const app = express();
 const httpServer = new http.Server(app);
+const sessionMiddleware = session({
+    secret: 'changeit',
+    resave: false,
+    saveUninitialized: false,
+});
 const io = new socket_io_1.Server(httpServer, {
     cors: {
         origin: ['http://localhost:3000', 'http://localhost:3006'],
         credentials: true,
     },
+    allowRequest: (req, callback) => {
+        // with HTTP long-polling, we have access to the HTTP response here, but this is not
+        // the case with WebSocket, so we provide a dummy response object
+        const fakeRes = {
+            getHeader() {
+                return [];
+            },
+            setHeader(key, values) {
+                req.cookieHolder = values[0];
+            },
+            writeHead() { },
+        };
+        sessionMiddleware(req, fakeRes, () => {
+            if (req.session) {
+                // trigger the setHeader() above
+                fakeRes.writeHead();
+                // manually save the session (normally triggered by res.end())
+                req.session.save();
+            }
+            callback(null, true);
+        });
+    },
 });
 app.set('socketIo', io);
-// io.attach(httpServer, {
-//     pingInterval: 5000, // 5s - đơn vị miliseconds 1000ms = 1s
-//     pingTimeout: 20000, // 20s - đơn vị miliseconds 1000ms = 1s
-//     cookie: false,
-// })
 io.use(middleware_1.middleAuthenTicationSocket);
 index_1.default.connect();
 app.use(cors());
